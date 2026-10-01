@@ -1,0 +1,6 @@
+drug	target	contact_jaccard_01	contact_jaccard_02	contact_jaccard_12	mean_jaccard	n_contacts_m0	n_contacts_m1	n_contacts_m2	raw_rmsd_01_unaligned	raw_rmsd_02_unaligned	raw_rmsd_12_unaligned	note
+nintedanib	LYN	0.789	0.800	0.700	0.763	18	16	18	28.49	29.11	17.54	raw_unaligned_rmsd_requires_superposition
+bosutinib	LYN	0.895	0.889	0.895	0.893	17	19	17	27.64	29.70	10.76	raw_unaligned_rmsd_requires_superposition
+masitinib	LYN	0.593	0.636	0.500	0.576	20	23	16	23.00	10.87	30.08	raw_unaligned_rmsd_requires_superposition
+tranilast	TGFB1	0.000	0.000	0.000	0.000	8	8	10	25.66	47.80	35.63	raw_unaligned_rmsd_requires_superposition
+dasatinib	LYN	0.947	0.947	1.000	0.965	19	18	18	23.63	20.96	12.88	raw_unaligned_rmsd_requires_superposition

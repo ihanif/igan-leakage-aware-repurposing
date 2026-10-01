@@ -1,0 +1,18 @@
+drug	np_rank	np_z_score	ot_rank	ot_genetic_score	mean_rank	hit_alignment	target_gene	moa	clinical_phase	novel
+d-4476	6	-6.377	21	0.428	13.5	4	TGFB1	TGF beta receptor inhibitor	Preclinical	True
+adaprev	5	-6.5175	23	0.428	14.0	4	TGFB1	TGF beta receptor inhibitor	Phase 3	True
+f351	16	-5.6862	20	0.428	18.0	4	TGFB1	TGF beta receptor inhibitor	Phase 2	True
+ft011	27	-5.1747	19	0.428	23.0	4	TGFB1	TGF beta receptor inhibitor	Preclinical	True
+ginsenoside-re	30	-4.2648	16	0.4961	23.0	4	REL	anti-inflammatory agent	Phase 1	True
+bafetinib	35	-3.9236	12	0.5052	23.5	2	LYN	Bcr-Abl kinase inhibitor | LYN tyrosine kinase inhibitor	Phase 2	True
+tolimidone	40	-3.7928	11	0.5052	25.5	2	LYN	SRC activator	Phase 2	True
+on123300	54	-2.2036	8	0.5052	31.0	2	LYN	CDK inhibitor	Preclinical	True
+bosutinib	56	-2.0606	7	0.5052	31.5	2	LYN	Abl kinase inhibitor | Bcr-Abl kinase inhibitor | SRC inhibitor	Launched	True
+rebastinib	55	-2.0913	10	0.5052	32.5	2	LYN	Bcr-Abl kinase inhibitor | TIE tyrosine kinase inhibitor | VEGFR inhibitor	Phase 1/Phase 2	True
+barium-6-o-phosphonato-d-glucose	48	-3.2811	18	0.428	33.0	4	TGFB1	nan	Preclinical	True
+masitinib	53	-2.4299	14	0.5052	33.5	2	LYN	KIT inhibitor | PDGFR tyrosine kinase receptor inhibitor | SRC inhibitor	Launched	True
+ponatinib	59	-1.5881	9	0.5052	34.0	2	LYN	Bcr-Abl kinase inhibitor | FLT3 inhibitor | PDGFR tyrosine kinase receptor inhibitor	Launched	True
+nintedanib	57	-2.0176	13	0.5052	35.0	2	LYN	FGFR inhibitor | PDGFR tyrosine kinase receptor inhibitor | VEGFR inhibitor	Launched	True
+dasatinib	61	-0.9131	15	0.5052	38.0	2	LYN	Bcr-Abl kinase inhibitor | ephrin inhibitor | KIT inhibitor | PDGFR tyrosine kinase receptor inhibitor | SRC inhibitor | tyrosine kinase inhibitor	Launched	True
+tranilast	58	-1.627	22	0.428	40.0	4	TGFB1	angiogenesis inhibitor	Launched	True
+iodipamide	70	0.1392	81	0.0	75.5	0	ALB	radiopaque medium	Launched	True

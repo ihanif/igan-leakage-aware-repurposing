@@ -1,0 +1,200 @@
+# IgA nephropathy: configuration for the drug repurposing pipeline.
+
+disease:
+  id: igan
+  name: "IgA Nephropathy"
+  abbreviation: "IgAN"
+  long_name: "IgA nephropathy (Berger's disease)"
+
+# Used by: papers/p01-gnn-repurposing/scripts/ with --config shared/configs/igan.yaml
+repurposing:
+  efo_id: "EFO_0004194"          # Open Targets disease identifier
+  output_dir: "papers/p01-gnn-repurposing"  # relative to repo root
+
+  # Proteins that must be present in the disease module (validation checkpoint)
+  validation_proteins: [CFB, TGFB1, TNFSF13]
+
+  # Approved / Phase-3 drugs used for retrospective validation
+  known_approved_drugs:
+    - budesonide
+    - sparsentan
+    - iptacopan
+    - iptacopan hydrochloride
+    - atrasentan
+    - sibeprenlimab
+    - atacicept
+    - telitacicept
+    - povetacicept
+    - ravulizumab
+    - narsoplimab
+    - sefaxersen
+    - sefaxersen sodium
+    - fostamatinib
+    - fostamatinib disodium
+    - dapagliflozin
+    - empagliflozin
+    - hydroxychloroquine
+
+  # Human-readable labels for hit numbers (used in dossiers)
+  hit_labels:
+    0: "Unknown / non-aligned"
+    1: "Hit 1 — glycosylation (Gd-IgA1 production)"
+    2: "Hit 2 — autoantibody/B-cell (LYN/BAFF/APRIL axis)"
+    3: "Hit 3 — complement activation"
+    4: "Hit 4 — fibrosis and mesangial damage (TGF-beta/NF-kB)"
+
+  # Kiryluk 2023 GWAS loci (Nat Genet 2023;55:1091-1105, doi:10.1038/s41588-023-01422-x)
+  # hit: 1=glycosylation, 2=autoantibody/B-cell, 3=complement, 4=fibrosis/NF-kB
+  gwas_loci:
+    - {gene: GALNT2,    hit: 1, note: "GalNAc-transferase; direct glycosylation enzyme"}
+    - {gene: C1GALT1,   hit: 1, note: "Core 1 beta3-galactosyltransferase"}
+    - {gene: ST6GALNAC2,hit: 1, note: "Sialylation enzyme; modifies IgA1 hinge"}
+    - {gene: TNFSF13,   hit: 2, note: "APRIL; target of sibeprenlimab (FDA 2025)"}
+    - {gene: TNFSF13B,  hit: 2, note: "BAFF; target of atacicept (Phase 3)"}
+    - {gene: TNFRSF13B, hit: 2, note: "TACI receptor; GWAS retrospectively validates atacicept"}
+    - {gene: TNFSF4,    hit: 2, note: "OX40L; Kiryluk 2023 TNFSF4/TNFSF18 locus"}
+    - {gene: TNFSF18,   hit: 2, note: "GITRL; same locus as TNFSF4"}
+    - {gene: FCAR,      hit: 2, note: "FcalphaRI/CD89; immune complex receptor; no drug"}
+    - {gene: CD28,      hit: 2, note: "T-cell co-stimulation; abatacept target"}
+    - {gene: LYN,       hit: 2, note: "B-cell receptor signalling kinase; dasatinib target"}
+    - {gene: IRF8,      hit: 2, note: "B-cell differentiation regulator; no IgAN drug"}
+    - {gene: CCR6,      hit: 2, note: "East-Asian-specific locus; gut-homing B-cells"}
+    - {gene: CFB,       hit: 3, note: "Factor B; target of iptacopan (FDA 2024)"}
+    - {gene: CFH,       hit: 3, note: "Complement Factor H; regulatory protein"}
+    - {gene: CFHR1,     hit: 3, note: "FH-related 1; complement regulation"}
+    - {gene: CFHR3,     hit: 3, note: "FH-related 3; complement regulation"}
+    - {gene: CFHR5,     hit: 3, note: "FH-related 5; C3 activation"}
+    - {gene: MASP2,     hit: 3, note: "MBL-assoc. serine protease 2; narsoplimab target"}
+    - {gene: C5,        hit: 3, note: "Complement C5; ravulizumab Phase 3"}
+    - {gene: TGFB1,     hit: 4, note: "TGF-beta1; fibrosis master regulator; no IgAN drug yet"}
+    - {gene: EDNRA,     hit: 4, note: "Endothelin receptor A; target of atrasentan (FDA 2025)"}
+    - {gene: AGTR1,     hit: 4, note: "AT1 receptor; target of sparsentan (FDA 2023)"}
+    - {gene: REL,       hit: 4, note: "NF-kB c-Rel; GWAS locus; no IgAN drug"}
+    - {gene: RELA,      hit: 4, note: "NF-kB p65; fibrosis effector"}
+    - {gene: HLA-DQB1,  hit: 2, note: "MHC class II; antigen presentation"}
+    - {gene: HORMAD2,   hit: 0, note: "Meiotic recombination; mechanism unclear"}
+    - {gene: VAV3,      hit: 2, note: "Rho GEF; B-cell signalling"}
+    - {gene: DEFA,      hit: 3, note: "Defensin alpha cluster; innate immunity"}
+    - {gene: ITGA1,     hit: 4, note: "Integrin alpha 1; mesangial adhesion"}
+
+  # Full set of drugs with any IgAN clinical trial record (script 07 novelty flag).
+  # A consensus candidate NOT in this set is a genuine novel prediction.
+  # Superset of known_approved_drugs — includes Phase 2+ and guideline drugs.
+  known_trial_drugs:
+    # FDA approved
+    - budesonide
+    - sparsentan
+    - iptacopan
+    - iptacopan hydrochloride
+    - atrasentan
+    - sibeprenlimab
+    # Phase 3 / BLA submitted
+    - atacicept
+    - telitacicept
+    - povetacicept
+    - mezagitamab
+    - ravulizumab
+    - narsoplimab
+    - sefaxersen
+    - sefaxersen sodium
+    - zigakibart
+    - blisibimod
+    - finerenone
+    - avacopan
+    - valziflocept
+    - felzartamab
+    - batiraxcept
+    - vemircopan
+    # Phase 2
+    - fostamatinib
+    - fostamatinib disodium
+    # Common supportive / guideline
+    - dapagliflozin
+    - empagliflozin
+    - losartan
+    - candesartan
+    - irbesartan
+    - telmisartan
+    - olmesartan
+    - valsartan
+    - eprosartan
+    - hydroxychloroquine
+    - mycophenolate mofetil
+    - mycophenolate
+    - prednisolone
+    - methylprednisolone
+    - cyclophosphamide
+    - tacrolimus
+    - tacrolimus anhydrous
+    - sirolimus
+    - paricalcitol
+    - aliskiren
+    - enalapril
+
+  # Shared large data files (PrimeKG, DRH) — reused across disease runs
+  shared_data_dir: "papers/p01-gnn-repurposing/data/raw"
+
+  # PrimeKG disease node index (confirmed: "IgA glomerulonephritis", MONDO_grouped)
+  primekg_node_index: 38388
+
+  # Known drugs in DrugBank display-name format (PrimeKG node_name column)
+  # Used as positive training examples for the GNN (script 06)
+  known_drugs_drugbank:
+    - Budesonide
+    - Sparsentan
+    - Iptacopan
+    - Atrasentan
+    - Sibeprenlimab
+    - Dapagliflozin
+    - Empagliflozin
+    - Hydroxychloroquine
+    - Mycophenolate mofetil
+    - Prednisolone
+    - Methylprednisolone
+    - Losartan
+    - Telmisartan
+    - Candesartan
+    - Irbesartan
+    - Fostamatinib
+    - Ravulizumab
+    - Narsoplimab
+
+  # Validation steps for candidate dossiers (script 09 next steps section)
+  validation_steps:
+    in_vitro: "Test in primary human mesangial cells, or the mouse mesangial cell line MES-13"
+    in_vivo: "ddY mouse model (spontaneous IgAN) — measure proteinuria, UPCR, Gd-IgA1"
+    clinical: "IgAN-specific Phase 2 trial (primary endpoint: 40% UPCR reduction at 12 months)"
+
+  # Per-drug priority score additions (script 08). Used for dual-hit bonuses.
+  priority_bonuses:
+    nintedanib: 1    # targets both LYN (Hit 2) and PDGFR/VEGFR (Hit 4 fibrosis)
+
+  # Mechanism clusters for end-of-run summary (script 08).
+  mechanism_clusters:
+    - {name: "LYN kinase (Hit 2)", target_gene: LYN}
+    - {name: "TGF-beta (Hit 4)",   target_gene: TGFB1}
+    - {name: "REL/NF-kB (Hit 4)",  target_gene: REL}
+
+  # Per-target GWAS narrative for candidate dossiers (used by script 09)
+  gwas_context:
+    LYN: >-
+      LYN encodes a Src-family tyrosine kinase at the apex of the B-cell receptor
+      signalling cascade. Kiryluk et al. 2023 identified LYN as a genome-wide
+      significant IgAN susceptibility locus (rank 22 of 3,005 by Open Targets
+      genetic association score, score 0.505). Downstream cascade: LYN -> SYK ->
+      BTK -> NF-kB -> BAFF/APRIL. Fostamatinib (SYK inhibitor) is in Phase 2 for
+      IgAN, confirming pathway validity. Drugs targeting LYN directly have not been
+      tested in IgAN.
+    TGFB1: >-
+      TGFB1 encodes TGF-beta1, the master fibrosis regulator and a direct Kiryluk
+      2023 GWAS locus (rank 34 of 3,005, score 0.428). In IgAN, TGF-beta1 drives
+      mesangial cell activation, endothelial-to-mesenchymal transition (EndMT), and
+      ECM deposition leading to irreversible nephron loss. No approved IgAN therapy
+      reverses established fibrosis. TGF-beta inhibitors are in Phase 2/3 for liver
+      fibrosis and IPF but have not entered IgAN-specific trials.
+    REL: >-
+      REL encodes NF-kB proto-oncogene c-Rel, a transcription factor subunit
+      controlling inflammatory cytokine production and B-cell survival. Kiryluk et
+      al. 2023 identified REL as a genome-wide significant IgAN locus (rank 23 of
+      3,005, score 0.496). NF-kB drives BAFF and APRIL expression, connecting REL
+      to the autoantibody axis (Hit 2) and fibrotic gene transcription (Hit 4).

@@ -1,0 +1,16 @@
+candidate	cmap_rank	total_drugs	percentile	connectivity_score	top_10pct
+dasatinib	32.0	3344	1.0	334.61	True
+nintedanib	99.0	3344	3.0	179.21	True
+bosutinib	136.0	3344	4.1	131.32	True
+ponatinib	185.0	3344	5.5	99.13	True
+d-4476	323.0	3344	9.7	48.39	True
+masitinib	1262.0	3344	37.7	13.44	False
+tranilast	1508.0	3344	45.1	11.07	False
+adaprev		3344		0.0	False
+f351		3344		0.0	False
+bafetinib		3344		0.0	False
+tolimidone		3344		0.0	False
+rebastinib		3344		0.0	False
+ginsenoside-re		3344		0.0	False
+ft011		3344		0.0	False
+on123300		3344		0.0	False

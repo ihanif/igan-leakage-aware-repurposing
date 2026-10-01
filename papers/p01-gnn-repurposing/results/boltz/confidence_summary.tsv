@@ -1,0 +1,6 @@
+rank	drug	target	uniprot	mean_iptm	mean_ligand_iptm	mean_ptm	mean_confidence	mean_plddt	best_iptm	best_ligand_iptm	model_0_iptm	model_1_iptm	model_2_iptm
+1	nintedanib	LYN	P07948	0.9626	0.9626	0.844	0.8762	0.8546	0.9746	0.9746	0.9603	0.9746	0.953
+2	bosutinib	LYN	P07948	0.9815	0.9815	0.835	0.8758	0.8494	0.9835	0.9835	0.9835	0.9808	0.9802
+3	masitinib	LYN	P07948	0.8878	0.8878	0.8296	0.8478	0.8378	0.9609	0.9609	0.9609	0.9418	0.7606
+4	tranilast	TGFB1	P01137	0.8495	0.8495	0.7935	0.7256	0.6946	0.8512	0.8512	0.8512	0.8509	0.8464
+5	dasatinib	LYN	P07948	0.9851	0.9851	0.8546	0.8957	0.8734	0.9854	0.9854	0.9854	0.9851	0.9849

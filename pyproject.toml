@@ -1,0 +1,23 @@
+[project]
+name = "igan-network-proximity-repurposing"
+version = "1.0.0"
+description = "GWAS-informed network proximity and graph neural network drug repurposing pipeline for IgA nephropathy"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Hanif Rahman" }]
+dependencies = [
+    "pyyaml>=6.0",
+    "networkx>=3.0",
+    "pandas>=2.0",
+    "requests>=2.28",
+    "scipy>=1.10",
+    "numpy>=1.24",
+    "matplotlib>=3.7",
+    "GEOparse>=2.0",
+]
+
+[project.optional-dependencies]
+gnn = [
+    "torch>=2.0",
+    "torch-geometric>=2.3",
+]
