@@ -131,7 +131,7 @@ repurposing:
     - aliskiren
     - enalapril
 
-  # Shared large data files (PrimeKG, DRH) — reused across disease runs
+  # Raw downloads (PrimeKG, Drug Repurposing Hub), relative to the repository root
   shared_data_dir: "papers/p01-gnn-repurposing/data/raw"
 
   # PrimeKG disease node index (confirmed: "IgA glomerulonephritis", MONDO_grouped)

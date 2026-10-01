@@ -1,24 +1,22 @@
 """
 Shared utilities for the drug repurposing pipeline scripts.
 
-All pipeline scripts (01–10, cmap_analysis) import from here so that
-find_repo_root() and load_config() stay in one place.
+All pipeline scripts import from here so that find_repo_root() and
+load_config() stay in one place.
 """
 
-import subprocess
 from pathlib import Path
 
 import yaml
 
 
 def find_repo_root() -> Path:
-    try:
-        root = subprocess.check_output(
-            ["git", "rev-parse", "--show-toplevel"], stderr=subprocess.DEVNULL
-        ).decode().strip()
-        return Path(root)
-    except subprocess.CalledProcessError:
-        return Path(__file__).resolve().parents[2]
+    """Repository root, located from this file (shared/scripts/pipeline_utils.py).
+
+    Does not depend on git, so it works from an archive download or when
+    unpacked inside another git working tree.
+    """
+    return Path(__file__).resolve().parents[2]
 
 
 def load_config(config_arg: str) -> tuple[dict, Path]:
