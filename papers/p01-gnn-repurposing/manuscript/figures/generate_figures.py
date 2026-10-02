@@ -148,7 +148,7 @@ box(ax, 1.5, 6.2, 2.6, 0.85,
     "Network proximity\nGuney 2016 z-scores\n1,989 drugs  (Script 04)",
     "#e8f4fd", "#2166ac", fontsize=8)
 box(ax, 5.0, 6.2, 2.6, 0.85,
-    "Open Targets\nGenetic assoc. score\n3,236 drug-gene pairs\n(Script 05)",
+    "Open Targets\nGenetic assoc. score\n3,236 drugs  (Script 05)",
     "#e8f4fd", "#2166ac", fontsize=8)
 box(ax, 8.5, 6.2, 2.6, 0.85,
     "PrimeKG R-GCN\nlink prediction, leave-one-out\n7,957 drugs  (Scripts 06, 06b)",

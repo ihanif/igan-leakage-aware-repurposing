@@ -1,15 +1,16 @@
 """
 Step 12: Post-prediction analysis of Boltz-2 protein-ligand structures.
 
-Generates three outputs from the CIF predictions produced by 11_boltz_predict.py:
+Generates these outputs from the predictions produced by 11_boltz_predict.py:
 
-1. Figure: ligand_ipTM bar chart (GNN-ranked, per-model dots + mean bar)
+1. Figure and table: ligand ipTM per diffusion sample and mean (Supplementary Table 1)
 2. Table: contact residues per drug (protein residues within 4 Å of ligand heavy atoms)
 3. Table: inter-model ligand RMSD (binding pose consistency across 3 diffusion samples)
 
 All outputs written to results/boltz/:
   figures/fig_boltz2_iptm.png          — ipTM bar chart (manuscript Figure)
   figures/fig_boltz2_iptm.pdf          — vector version
+  confidence_summary.tsv               — per-model and mean ligand ipTM
   contact_residues.tsv                 — per-drug binding-site residue table
   inter_model_rmsd.tsv                 — per-drug RMSD between model pairs
 
@@ -149,6 +150,13 @@ def make_iptm_figure(pred_dir: Path, out_dir: Path) -> None:
         per_model.append(vals)
         colours.append(CLUSTER_COLOURS[d["cluster"]])
         ranks.append(d["final_rank"])
+
+    summary = out_dir.parent / "confidence_summary.tsv"
+    with open(summary, "w") as f:
+        f.write("drug\ttarget\tmodel_0_ligand_iptm\tmodel_1_ligand_iptm\tmodel_2_ligand_iptm\tmean_ligand_iptm\n")
+        for d, vals, mean_val in zip(DRUGS, per_model, means):
+            f.write("\t".join([d["drug"], d["target"]] + [f"{v:.3f}" for v in vals] + [f"{mean_val:.3f}"]) + "\n")
+    print(f"  Saved: {summary}")
 
     # Sort descending by mean ipTM for visual clarity
     order = sorted(range(len(means)), key=lambda i: means[i], reverse=True)
@@ -325,6 +333,7 @@ def main():
 
     print("\nDone. Outputs:")
     print(f"  {fig_dir}/fig_boltz2_iptm.{{png,pdf}}")
+    print(f"  {base}/confidence_summary.tsv")
     print(f"  {base}/contact_residues.tsv")
     print(f"  {base}/inter_model_rmsd.tsv")
 

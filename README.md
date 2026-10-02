@@ -85,7 +85,7 @@ Paths are relative to `papers/p01-gnn-repurposing/`.
 | Table 1 and retrospective ranks | `results/network_proximity_ranked.tsv` | `04` |
 | Table 2, final candidates | `results/final_candidates.tsv` | `07`, `08` |
 | Table 3, transcriptomic reversal | `results/cmap_analysis/p01_candidates_cmap.tsv` | `cmap_analysis.py` |
-| Supplementary Table 1, co-folding | `results/boltz/confidence_summary.tsv`, `contact_residues.tsv` | `11`, `12` |
+| Supplementary Table 1, co-folding | `results/boltz/confidence_summary.tsv` (ipTM), `inter_model_rmsd.tsv` (contact Jaccard) | `11`, `12` |
 | GNN ranks for candidates | `results/kg_full_candidate_ranked_rgcn.tsv` | `06b` |
 | Genetic association ranks | `results/opentargets_genes.tsv`, `opentargets_ranked.tsv` | `05` |
 | Annotation-vintage protocol | console output | `13` |

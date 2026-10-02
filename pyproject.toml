@@ -1,6 +1,6 @@
 [project]
 name = "igan-network-proximity-repurposing"
-version = "1.0.0"
+version = "1.0.1"
 description = "GWAS-informed network proximity and graph neural network drug repurposing pipeline for IgA nephropathy"
 requires-python = ">=3.11"
 license = "MIT"
